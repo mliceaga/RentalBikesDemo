@@ -6,11 +6,20 @@ using Domain;
 
 namespace BLL
 {
-    public class RentalCalculator : IRentalStrategy
+    public class RentalCalculator
     {
-        public double CalculateRentalPrice()
+        private IRentalStrategy _rentalStrategy;
+
+        public RentalCalculator()
         {
-            throw new NotImplementedException();
         }
+
+        public RentalCalculator(IRentalStrategy rentalStrategy)
+        {
+            _rentalStrategy = rentalStrategy;
+        }
+
+        public void SetCalculator(IRentalStrategy calculator) => _rentalStrategy = calculator;
+        public double Calculate(IEnumerable<RentalReport> reports) => _rentalStrategy.CalculateRentalPrice(reports);
     }
 }

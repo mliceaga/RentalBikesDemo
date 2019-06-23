@@ -28,7 +28,9 @@ namespace UnitTests
 
             container = new Container();
 
-            container.Register<IRentalStrategy, RentalCalculator>();
+            container.Register<IRentalStrategy, HourRental>();
+            container.Register<IRentalStrategy, DayRental>();
+            container.Register<IRentalStrategy, WeekRental>();
 
             container.Verify();
         }
@@ -54,7 +56,7 @@ namespace UnitTests
         [TestMethod]
         public void FamilyRentalTest()
         {
-
+            
         }
     }
 }

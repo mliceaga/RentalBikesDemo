@@ -1,13 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using BLL.Interfaces;
+using Domain;
 
-namespace Domain.Models
+namespace BLL
 {
     public class WeekRental : IRentalStrategy
     {
-        public double CalculateRentalPrice()
+        public double CalculateRentalPrice(IEnumerable<RentalReport> reports)
         {
-            throw new NotImplementedException();
+            return reports.Where(r => r.RentalType == RentalType.Week).Select(r => r.CalculateRental()).Sum();
         }
     }
 }
