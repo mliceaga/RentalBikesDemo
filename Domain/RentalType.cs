@@ -6,8 +6,8 @@ namespace Domain
 {
     public enum RentalType
     {
-        Hour, 
-        Day,
-        Week
+        Hour = 5, 
+        Day = 20,
+        Week = 60
     }
 }

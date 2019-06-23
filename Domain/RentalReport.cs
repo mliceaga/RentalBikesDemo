@@ -12,6 +12,15 @@ namespace Domain
         public int Period { get; set; }
         public double Rate { get; set; }
 
+        public RentalReport(int id, string name, RentalType rentalType, int period)
+        {
+            Id = id;
+            Name = name;
+            this.RentalType = rentalType;
+            Period = period;
+            Rate = (double)rentalType;
+        }
+
         public double CalculateRental() => Period * Rate;
     }
 }
